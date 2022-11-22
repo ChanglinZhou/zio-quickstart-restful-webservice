@@ -13,7 +13,7 @@ object MainApp extends ZIOAppDefault:
       port = 8080,
       http = GreetingApp() ++ DownloadApp() ++ CounterApp() ++ UserApp()
     ).provide(
-      // An layer responsible for storing the state of the `counterApp`
+      // A layer responsible for storing the state of the `counterApp`
       ZLayer.fromZIO(Ref.make(0)),
       
       // To use the persistence layer, provide the `PersistentUserRepo.layer` layer instead
